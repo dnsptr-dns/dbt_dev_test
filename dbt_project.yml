@@ -1,0 +1,29 @@
+# dbt_project.yml
+
+name: 'dbt_project'  # Replace with your project name
+version: '1.0'             # Version of your dbt project
+config-version: 2          # Configuration version (must be 2 for dbt >= 0.21)
+
+profile: 'your_profile'    # The profile you set in ~/.dbt/profiles.yml
+
+# Specify paths to source files
+source-paths: ["models"]    # The directory where your model files are located
+
+# The target path for dbt artifacts
+target-path: "target"       # Where dbt will place compiled models and other artifacts
+
+# Clean targets
+clean-targets:
+  - "target"                 # Directory to clean
+  - "dbt_modules"           # dbt modules directory
+
+# Model configurations
+models:
+  your_project_name:         # Replace with your project name (same as above)
+    +materialized: table     # Default materialization for models
+    +schema: datamart        # Specify that models should be created in the datamart dataset
+    # Optional: you can set specific materialization for models here, e.g.,
+    # dim_bus_route:
+    #   +materialized: view
+    # fact_transit_ridership:
+    #   +materialized: table
