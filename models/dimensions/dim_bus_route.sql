@@ -5,7 +5,7 @@
 with
     base as (
         -- Select distinct bus routes from the raw data
-        select distinct bus_route from {{ ref("raw_transit_data") }}  -- Reference to the raw data model
+        select distinct bus_route from `gcp-learn-368515.raw_data.tb_bus_ridership`
     )
 
 select
