@@ -13,7 +13,7 @@ with base as (
         sum(transfers) as total_transfers,   -- Aggregate transfers
         date(transit_timestamp) as transit_date,  -- Extract date
         time(transit_timestamp) as transit_time   -- Extract time
-    from {{ ref('raw_transit_data') }}  
+    from `gcp-learn-368515.raw_data.tb_bus_ridership`  
     group by
         transit_timestamp,
         bus_route,
